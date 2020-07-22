@@ -1,0 +1,28 @@
+@import "./sass/style";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: "Nunito Sans", sans-serif;
+  background: $very-light-gray;
+  color: $very-dark-blue;
+}
+
+.search__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3rem;
+}

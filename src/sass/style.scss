@@ -1,0 +1,22 @@
+/* Colors*/
+
+/* Text colors */
+$very-dark-blue: hsl(200, 15%, 8%);
+
+/* for input */
+$dark-gray: hsl(0, 0%, 52%);
+
+/* Background*/
+$very-light-gray: hsl(0, 0%, 98%);
+
+/* Font Weights */
+
+$light: 300;
+$medium: 600;
+$bold: 800;
+
+/* Utilities */
+.u-container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
