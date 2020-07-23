@@ -14,22 +14,23 @@ class CountryPage extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    const { countryName } = this.props.match.params;
+  async fetchData() {
+    const { countryCode } = this.props.match.params;
 
-    const response = await fetch(
-      `https://restcountries.eu/rest/v2/name/${countryName}?fullText=true`
-    );
-    const data = await response.json();
-
-    this.setState({
-      countryDetails: data[0],
-    });
+    fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`)
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          countryDetails: data,
+        })
+      );
+  }
+  componentDidMount() {
+    this.fetchData();
   }
 
   render() {
     const { countryDetails } = this.state;
-    console.log(countryDetails);
     return (
       <div className="u-container">
         <BackButton />

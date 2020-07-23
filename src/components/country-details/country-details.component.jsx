@@ -1,5 +1,7 @@
 import React from "react";
 
+import BorderLink from "../border-link/border-link.component";
+
 import "./country-details.styles.scss";
 
 const CountryDetails = ({ details }) => {
@@ -8,9 +10,13 @@ const CountryDetails = ({ details }) => {
     region,
     subregion,
     flag,
-    nativename,
+    nativeName,
     population,
     capital,
+    borders,
+    currencies,
+    topLevelDomain,
+    languages,
   } = details;
 
   return (
@@ -25,7 +31,7 @@ const CountryDetails = ({ details }) => {
         <div className="country__stats">
           <ul className="stats__left">
             <li className="stat">
-              Native Name: <span>{nativename}</span>
+              Native Name: <span>{nativeName}</span>
             </li>
             <li className="stat">
               Population: <span>{population}</span>
@@ -43,19 +49,48 @@ const CountryDetails = ({ details }) => {
 
           <ul className="stats__left">
             <li className="stat">
-              Top Level Domain: <span>Belgie</span>
+              Top Level Domain:
+              {topLevelDomain &&
+                topLevelDomain.map((domain, ind) => {
+                  if (ind === topLevelDomain.length - 1) {
+                    return <span key={ind}>{domain}</span>;
+                  }
+                  return <span key={ind}>{domain},</span>;
+                })}
             </li>
+
             <li className="stat">
-              Currencies: <span>Belgie</span>
+              Currencies:
+              {currencies &&
+                currencies.map(({ name }, ind) => {
+                  if (ind === currencies.length - 1) {
+                    return <span key={ind}>{name}</span>;
+                  }
+                  return <span key={ind}>{name},</span>;
+                })}
             </li>
+
             <li className="stat">
-              Languagues: <span>Belgie</span>
+              Languagues:
+              {languages &&
+                languages.map(({ name }, ind) => {
+                  if (ind === languages.length - 1) {
+                    return <span key={ind}>{name}</span>;
+                  }
+                  return <span key={ind}>{name},</span>;
+                })}
             </li>
           </ul>
         </div>
 
         <div className="border__details">
-          <p>Border</p>
+          <p>Border:</p>
+          <div>
+            {borders &&
+              borders.map((border, index) => (
+                <BorderLink key={index} code={border} />
+              ))}
+          </div>
         </div>
       </div>
     </div>

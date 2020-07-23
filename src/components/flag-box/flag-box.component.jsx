@@ -5,12 +5,12 @@ import { withRouter } from "react-router-dom";
 import "./flag-box.styles.scss";
 
 const FlagBox = ({ country, history, match }) => {
-  const { flag, name, population, region, capital } = country;
+  const { flag, name, population, region, capital, alpha2Code } = country;
   return (
     <div
       className="flag__container"
       onClick={() => {
-        history.push(`${match.path}country/${name.toLowerCase()}`);
+        history.push(`${match.path}country/${alpha2Code.toLowerCase()}`);
       }}
     >
       <div

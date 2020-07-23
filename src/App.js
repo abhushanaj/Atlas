@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/country/:countryName" component={CountryPage} />
+        <Route path="/country/:countryCode" component={CountryPage} />
       </Switch>
     </div>
   );
