@@ -15,7 +15,7 @@ const Dropdown = ({ region, handleChange }) => {
         onChange={handleChange}
         value={region}
       >
-        <option>Filter by Region</option>
+        <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">Americas</option>
         <option value="Asia">Asia</option>

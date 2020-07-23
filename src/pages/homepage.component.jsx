@@ -8,10 +8,18 @@ import FlagLists from "../components/flag-lists/flag-lists.component";
 import "./homepage.styles.scss";
 
 const fetchCountriesByRegion = async (regionName) => {
-  const response = await fetch(
-    `https://restcountries.eu/rest/v2/region/${regionName}`
-  );
-  const data = await response.json();
+  let data, urlToFetch;
+  try {
+    urlToFetch =
+      regionName === ""
+        ? "https://restcountries.eu/rest/v2/all"
+        : `https://restcountries.eu/rest/v2/region/${regionName}`;
+
+    const response = await fetch(urlToFetch);
+    data = await response.json();
+  } catch (error) {
+    console.log(error);
+  }
   return data;
 };
 
@@ -37,30 +45,36 @@ class HomePage extends React.Component {
         const { region } = this.state;
 
         if (name === "region") {
-          console.log("Triggered");
-          console.log(region);
-          const result = await fetchCountriesByRegion(region.toLowerCase());
-          this.setState({
-            countriesList: result,
-          });
+          try {
+            const result = await fetchCountriesByRegion(region.toLowerCase());
+            this.setState({
+              countriesList: result,
+            });
+          } catch (error) {
+            console.log(error);
+          }
         }
       }
     );
   };
 
   async componentDidMount() {
-    const response = await fetch("https://restcountries.eu/rest/v2/all");
-    const data = await response.json();
-    this.setState({
-      countriesList: data,
-    });
+    try {
+      const response = await fetch("https://restcountries.eu/rest/v2/all");
+      const data = (await response.json()) || [];
+      this.setState({
+        countriesList: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
     const { country, region, countriesList } = this.state;
 
     const countriesToRender = countriesList.filter(({ name }) => {
-      return name.toLowerCase().includes(country.toLocaleLowerCase());
+      return name.toLowerCase().includes(country.toLowerCase());
     });
 
     return (
