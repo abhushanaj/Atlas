@@ -1,11 +1,18 @@
 import React from "react";
 
+import { withRouter } from "react-router-dom";
+
 import "./flag-box.styles.scss";
 
-const FlagBox = ({ country }) => {
+const FlagBox = ({ country, history, match }) => {
   const { flag, name, population, region, capital } = country;
   return (
-    <div className="flag__container">
+    <div
+      className="flag__container"
+      onClick={() => {
+        history.push(`${match.path}country/${name.toLowerCase()}`);
+      }}
+    >
       <div
         className="flag__img"
         style={{
@@ -31,4 +38,4 @@ const FlagBox = ({ country }) => {
   );
 };
 
-export default FlagBox;
+export default withRouter(FlagBox);

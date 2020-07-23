@@ -1,0 +1,49 @@
+@import "../../sass/style";
+
+.country__container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & > * {
+    flex: 0 0 45%;
+  }
+}
+
+.country__flag {
+  img {
+    max-width: 100%;
+  }
+}
+
+.country__name {
+  font-size: 3rem;
+  align-self: flex-start;
+}
+
+.country__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 2rem;
+
+  & > * {
+    flex: 0 0 45%;
+    list-style: none;
+  }
+}
+
+.stat {
+  font-size: 1.3rem;
+  font-weight: $medium;
+  margin: 0.5rem 0;
+  span {
+    font-weight: $light;
+  }
+}
+
+.border__details {
+  margin-top: 4rem;
+  font-size: 1.4rem;
+  font-weight: $bold;
+}

@@ -1,9 +1,8 @@
 import React from "react";
 
-import Searchbox from "../components/searchbox/searchbox.component";
-import Dropdown from "../components/filter-dropdown/filter-dropdown.component";
-import Header from "../components/header/header.component";
-import FlagLists from "../components/flag-lists/flag-lists.component";
+import Searchbox from "../../components/searchbox/searchbox.component";
+import Dropdown from "../../components/filter-dropdown/filter-dropdown.component";
+import FlagLists from "../../components/flag-lists/flag-lists.component";
 
 import "./homepage.styles.scss";
 
@@ -79,7 +78,6 @@ class HomePage extends React.Component {
 
     return (
       <>
-        <Header />
         <div className="u-container search__group">
           <Searchbox country={country} handleChange={this.handleChange} />
           <Dropdown region={region} handleChange={this.handleChange} />
