@@ -1,0 +1,8 @@
+@import "../../sass/style";
+
+.flag__lists {
+  padding: 10rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 50px;
+}
