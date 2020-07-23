@@ -5,6 +5,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and(max-width:980px) {
+    flex-direction: column;
+  }
   & > * {
     flex: 0 0 45%;
   }
@@ -15,12 +19,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and(max-width:560px) {
+    width: 80%;
+    margin: 0 auto;
+  }
   img {
     max-height: 100%;
     max-width: 100%;
   }
 }
 
+.country__details {
+  @media only screen and(max-width:980px) {
+    width: 90%;
+    margin: 4rem auto;
+  }
+}
 .country__name {
   font-size: 3rem;
   align-self: flex-start;
@@ -31,6 +46,9 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 2rem;
+  @media only screen and(max-width:980px) {
+    flex-direction: column;
+  }
 
   & > * {
     flex: 0 0 45%;

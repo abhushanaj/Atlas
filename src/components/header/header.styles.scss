@@ -8,4 +8,7 @@
 .main-heading {
   font-weight: $bold;
   font-size: 2rem;
+  @media only screen and(max-width:560px) {
+    text-align: center;
+  }
 }

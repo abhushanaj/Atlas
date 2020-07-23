@@ -3,6 +3,9 @@
 .dropdown__container {
   width: 20%;
   position: relative;
+  @media only screen and(max-width:770px) {
+    width: 40%;
+  }
 
   .arrow {
     position: absolute;

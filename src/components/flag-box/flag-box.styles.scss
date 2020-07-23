@@ -9,6 +9,10 @@
   &:hover {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   }
+  @media only screen and(max-width:450px) {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 .flag__img {
