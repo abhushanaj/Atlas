@@ -7,6 +7,14 @@ import FlagLists from "../components/flag-lists/flag-lists.component";
 
 import "./homepage.styles.scss";
 
+const fetchCountriesByRegion = async (regionName) => {
+  const response = await fetch(
+    `https://restcountries.eu/rest/v2/region/${regionName}`
+  );
+  const data = await response.json();
+  return data;
+};
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -18,12 +26,26 @@ class HomePage extends React.Component {
     };
   }
 
-  handleChange = (event) => {
+  handleChange = async (event) => {
     const { name, value } = event.target;
 
-    this.setState({
-      [name]: value,
-    });
+    this.setState(
+      {
+        [name]: value,
+      },
+      async () => {
+        const { region } = this.state;
+
+        if (name === "region") {
+          console.log("Triggered");
+          console.log(region);
+          const result = await fetchCountriesByRegion(region.toLowerCase());
+          this.setState({
+            countriesList: result,
+          });
+        }
+      }
+    );
   };
 
   async componentDidMount() {
