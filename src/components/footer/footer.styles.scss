@@ -1,0 +1,23 @@
+@import "../../sass/style";
+
+footer {
+  margin-top: 10rem;
+  padding: 3rem 0;
+  background: $very-dark-blue;
+  color: #fff;
+}
+.footer {
+  &__line {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+
+  .link {
+    color: $dark-gray;
+    text-decoration: none;
+    &:hover {
+      color: cyan;
+    }
+  }
+}
